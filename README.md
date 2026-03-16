@@ -1,6 +1,6 @@
 # Moodboard personal – PRÁCTICA GRID
 
-Autor:Tu Nombre y Apellidos
+Autor: Pedro Ruben Catoira Perteagudo
 
 #Descripción de la práctica
 
