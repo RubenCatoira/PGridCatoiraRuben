@@ -1,0 +1,162 @@
+/* Variables principales */
+:root {
+  --color-bg: #0a0f1f;
+  --color-bg-card: #0f1a33;
+  --color-accent: #1e90ff;
+  --color-accent-soft: #0b63c8;
+  --color-text: #e6eefc;
+  --color-muted: #9bb3d1;
+  --radius-card: 1rem;
+  --shadow-card: 0 18px 35px rgba(0, 0, 0, 0.45);
+  --font-main: "Segoe UI", system-ui, sans-serif;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Header */
+header {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.7rem;
+}
+
+/* Nav */
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 0.75rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--color-text);
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-accent-soft);
+  transition: 0.2s;
+}
+
+nav a:hover {
+  background-color: var(--color-accent-soft);
+  color: white;
+}
+
+/* GRID PRINCIPAL */
+.moodboard {
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px; /* ← ALTURA FIJA PARA QUE LAS IMÁGENES NO EXPANDAN */
+  gap: 1.25rem;
+}
+
+/* Tarjetas base */
+.card {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-card);
+  padding: 1.2rem;
+  box-shadow: var(--shadow-card);
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border: 1px solid var(--color-accent);
+}
+
+.card h2,
+.card h3 {
+  margin: 0 0 0.4rem;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  font-size: 0.95rem;
+}
+
+.card p {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+/* TARJETAS DE IMAGEN (CORREGIDO) */
+.card-image-tech,
+.card-image-city {
+  padding: 0;
+  overflow: hidden; /* ← IMPIDE QUE LA IMAGEN EXPANDA LA CASILLA */
+}
+
+.card-image-tech img,
+.card-image-city img {
+  width: 100%;
+  height: 100%; /* ← OBLIGA A RELLENAR LA CASILLA */
+  object-fit: cover; /* ← RECORTA LA IMAGEN SIN DEFORMARLA */
+  display: block;
+}
+
+/* Hobbies */
+.card-hobbies ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* Botones */
+.btn {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-soft));
+  color: white;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* GRID AREAS */
+.card-identity { grid-column: 1 / span 2; grid-row: 1 / span 2; }
+.card-image-tech { grid-column: 3 / span 2; grid-row: 1 / span 2; }
+.card-portfolio { grid-column: 1; grid-row: 3; }
+.card-retro-linux { grid-column: 2; grid-row: 3; }
+.card-analog-archive { grid-column: 3; grid-row: 3; }
+.card-vision { grid-column: 1; grid-row: 4; }
+.card-image-city { grid-column: 2 / span 2; grid-row: 4; }
+.card-hobbies { grid-column: 4; grid-row: 3 / span 2; }
+
+/* Responsive mediano */
+@media (max-width: 900px) {
+  .moodboard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsive móvil */
+@media (max-width: 600px) {
+  .moodboard {
+    grid-template-columns: 1fr;
+  }
+}
